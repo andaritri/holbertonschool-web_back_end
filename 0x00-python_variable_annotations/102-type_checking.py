@@ -4,9 +4,9 @@ from typing import List, Any, Sequence, Union
 
 
 def zoom_array(
-    lst: Sequence[Any],
-    factor: Union[int, float] = 2
-) -> Sequence[Any]:
+    lst: List,
+    factor: int = 2
+) -> List:
     """Put type annotations for a function"""
     zoomed_in: List = [
         item for item in lst
@@ -15,7 +15,7 @@ def zoom_array(
     return zoomed_in
 
 
-array = [12, 72, 91]
+array = (12, 72, 91)
 
 zoom_2x = zoom_array(array)
 
