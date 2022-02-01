@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """File that contains zoom_array function"""
-from typing import List, Tuple
+from typing import List, Tuple, Any, Sequence, Union
 
 
-def zoom_array(lst: Tuple, factor: int = 2) -> List:
+def zoom_array(lst: Sequence[Any], factor: Union[int, float] = 2) -> Sequence[Any]:
     """Put type annotations for a function"""
     zoomed_in: List = [
         item for item in lst
-        for i in range(factor)
+        for i in range(int(factor))
     ]
     return zoomed_in
 
