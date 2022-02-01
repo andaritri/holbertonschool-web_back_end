@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """File that contains zoom_array function"""
-from typing import List, Tuple, Any, Union
+from typing import List, Tuple
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
