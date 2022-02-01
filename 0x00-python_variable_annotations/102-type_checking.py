@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """File that contains zoom_array function"""
-from typing import List
+from typing import List, Tuple
 
 
 def zoom_array(
-    lst: List,
+    lst: Tuple,
     factor: int = 2
 ) -> List:
     """Put type annotations for a function"""
@@ -15,8 +15,8 @@ def zoom_array(
     return zoomed_in
 
 
-array = (12, 72, 91)
+array = [12, 72, 91]
 
-zoom_2x = zoom_array(array)
+zoom_2x = zoom_array(tuple(array))
 
-zoom_3x = zoom_array(array, 3)
+zoom_3x = zoom_array(tuple(array), int(3.0))
