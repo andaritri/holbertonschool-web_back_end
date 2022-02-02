@@ -9,9 +9,6 @@ import random
 
 async def wait_random(max_dealay: int = 10) -> float:
     """0-basic_async_syntax.py"""
-    t = random.randint(0, max_dealay)
+    t = random.uniform(0, max_dealay)
     await asyncio.sleep(t)
     return t
-
-
-wait_random = wait_random
