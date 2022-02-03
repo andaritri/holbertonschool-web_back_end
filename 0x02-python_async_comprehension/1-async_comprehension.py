@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 1-async_comprehension.py """
+""" 1-async_comprehension.py file (task 1)"""
 from typing import Generator, List
 
 
