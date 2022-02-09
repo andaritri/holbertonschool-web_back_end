@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+"""1. Simple pagination
+"""
 import csv
-import math
 from typing import List
 
 
@@ -30,6 +32,8 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """1. Simple pagination
+        """
         if (
             not isinstance(page, int) or
             not isinstance(page_size, int) or
