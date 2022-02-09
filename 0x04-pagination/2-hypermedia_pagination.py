@@ -4,10 +4,10 @@
 """
 import csv
 import math
-from typing import List, Dict, Union
+from typing import List, Dict, Tuple
 
 
-def index_range(page: int, page_size: int):
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
     0. Simple helper function
     """
@@ -47,7 +47,7 @@ class Server:
         self,
         page: int = 1,
         page_size: int = 10
-    ) -> Dict[str, Union[None, int]]:
+    ) -> Dict:
         """ Hypermedia pagination
         """
         total_pages = math.ceil(len(self.dataset()) / page_size)
