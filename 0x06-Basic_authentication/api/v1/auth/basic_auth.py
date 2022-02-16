@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Basic Authentication module for the API"""
-from typing import Tuple
+from typing import Tuple, TypeVar
 from api.v1.auth.auth import Auth
+from models.user import User
 import base64
 
 
@@ -53,3 +54,32 @@ class BasicAuth(Auth):
         return tuple(
             decoded_base64_authorization_header.split(sep=":", maxsplit=1)
         )
+
+    def user_object_from_credentials(
+        self,
+        user_email: str,
+        user_pwd: str
+    ) -> TypeVar('User'):
+        """User object
+        """
+        if not isinstance(user_email, str) or not isinstance(user_pwd, str):
+            return None
+        try:
+            users = User.search({'email': user_email})
+            for user in users:
+                if user.is_valid_password(user_pwd):
+                    return user
+        except Exception:
+            return None
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """Current user
+        """
+        try:
+            header = self.authorization_header(request)
+            base64Header = self.extract_base64_authorization_header(header)
+            decodeValue = self.decode_base64_authorization_header(base64Header)
+            credentials = self.extract_user_credentials(decodeValue)
+            return self.user_object_from_credentials(*credentials)
+        except Exception:
+            return None
