@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """DB module
 """
 from flask import Flask, jsonify, request, abort, redirect
