@@ -56,7 +56,9 @@ class DB:
         """ Update a user object
         """
         user = self.find_user_by(id=user_id)
-        if not user.__dict__.get(list(kwargs)[0]):
-            raise ValueError
-        user.__dict__.update(**kwargs)
+        for k, v in kwargs.items():
+            if hasattr(user, k):
+                setattr(user, k, v)
+            else:
+                raise ValueError
         self._session.commit()
